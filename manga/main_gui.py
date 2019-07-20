@@ -1,0 +1,95 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'main_gui.ui'
+#
+# Created by: PyQt5 UI code generator 5.9.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_Manga(object):
+    def setupUi(self, Manga):
+        Manga.setObjectName("Manga")
+        Manga.setEnabled(True)
+        Manga.resize(1041, 700)
+        Manga.setMinimumSize(QtCore.QSize(0, 700))
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(Manga)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.tabWidget = QtWidgets.QTabWidget(Manga)
+        self.tabWidget.setTabPosition(QtWidgets.QTabWidget.North)
+        self.tabWidget.setTabShape(QtWidgets.QTabWidget.Rounded)
+        self.tabWidget.setIconSize(QtCore.QSize(16, 16))
+        self.tabWidget.setElideMode(QtCore.Qt.ElideNone)
+        self.tabWidget.setTabsClosable(False)
+        self.tabWidget.setObjectName("tabWidget")
+        self.tonjinshiTable = QtWidgets.QWidget()
+        self.tonjinshiTable.setObjectName("tonjinshiTable")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.tonjinshiTable)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.artistTree = QtWidgets.QTreeWidget(self.tonjinshiTable)
+        self.artistTree.setMinimumSize(QtCore.QSize(200, 0))
+        self.artistTree.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.artistTree.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.artistTree.setHeaderHidden(True)
+        self.artistTree.setColumnCount(2)
+        self.artistTree.setObjectName("artistTree")
+        self.artistTree.headerItem().setText(0, "1")
+        self.artistTree.headerItem().setText(1, "2")
+        self.artistTree.header().setVisible(False)
+        self.artistTree.header().setCascadingSectionResizes(False)
+        self.artistTree.header().setDefaultSectionSize(130)
+        self.artistTree.header().setMinimumSectionSize(40)
+        self.horizontalLayout.addWidget(self.artistTree)
+        self.ImageScrollArea = QtWidgets.QScrollArea(self.tonjinshiTable)
+        self.ImageScrollArea.setWidgetResizable(True)
+        self.ImageScrollArea.setObjectName("ImageScrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 833, 673))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout.setObjectName("gridLayout")
+        self.ImageScrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.horizontalLayout.addWidget(self.ImageScrollArea)
+        self.horizontalLayout.setStretch(0, 1)
+        self.horizontalLayout.setStretch(1, 6)
+        self.tabWidget.addTab(self.tonjinshiTable, "")
+        self.downloadTable = QtWidgets.QWidget()
+        self.downloadTable.setObjectName("downloadTable")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.downloadTable)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.widget = ExDownload(self.downloadTable)
+        self.widget.setObjectName("widget")
+        self.verticalLayout_2.addWidget(self.widget)
+        self.tabWidget.addTab(self.downloadTable, "")
+        self.recycleTable = QtWidgets.QWidget()
+        self.recycleTable.setObjectName("recycleTable")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.recycleTable)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.recycleItem = MyRecycleItem(self.recycleTable)
+        self.recycleItem.setObjectName("recycleItem")
+        self.verticalLayout_3.addWidget(self.recycleItem)
+        self.tabWidget.addTab(self.recycleTable, "")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.tabWidget.addTab(self.tab, "")
+        self.horizontalLayout_2.addWidget(self.tabWidget)
+
+        self.retranslateUi(Manga)
+        self.tabWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(Manga)
+
+    def retranslateUi(self, Manga):
+        _translate = QtCore.QCoreApplication.translate
+        Manga.setWindowTitle(_translate("Manga", "Manga"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tonjinshiTable), _translate("Manga", "本地"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.downloadTable), _translate("Manga", "下载"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.recycleTable), _translate("Manga", "回收站"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Manga", "网络"))
+
+from manga.MyQtWidgets import ExDownload, MyRecycleItem
